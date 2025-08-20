@@ -4,7 +4,7 @@
 ![Filament](https://img.shields.io/badge/Filament-A53737?style=for-the-badge&logo=php&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
 
-Ini adalah backend project untuk sebuah platform manajemen event bernama "EventHub". Proyek ini menyediakan REST API yang lengkap untuk pengelolaan event dan sebuah Admin Panel fungsional yang dibangun dengan Laravel Filament untuk administrasi data yang mudah.
+Ini adalah backend project untuk sebuah platform manajemen event bernama "Tefa Backend". Proyek ini menyediakan REST API yang lengkap untuk pengelolaan event dan sebuah Admin Panel fungsional yang dibangun dengan Laravel Filament untuk administrasi data yang mudah.
 
 ## 📋 Fitur Utama
 
