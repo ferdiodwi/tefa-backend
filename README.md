@@ -1,67 +1,103 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# EventHub API & Admin Panel
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+![Laravel](https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)
+![Filament](https://img.shields.io/badge/Filament-A53737?style=for-the-badge&logo=php&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
 
-## About Laravel
+Ini adalah backend project untuk sebuah platform manajemen event bernama "EventHub". Proyek ini menyediakan REST API yang lengkap untuk pengelolaan event dan sebuah Admin Panel fungsional yang dibangun dengan Laravel Filament untuk administrasi data yang mudah.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 📋 Fitur Utama
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+-   **RESTful API**: Menyediakan endpoint untuk semua operasi CRUD (Create, Read, Update, Delete) pada data event.
+-   **Otentikasi JWT**: Sistem otentikasi yang aman menggunakan JSON Web Tokens (JWT).
+-   **Hak Akses Berbasis Peran (RBAC)**:
+    -   **Admin**: Akses penuh untuk mengelola semua data (event dan pengguna).
+    -   **Organizer**: Hanya bisa mengelola event miliknya sendiri.
+-   **Query Lanjutan**: API mendukung paginasi, pencarian berdasarkan judul, filter berdasarkan status, dan sorting.
+-   **Admin Panel Fungsional**: Antarmuka visual yang dibangun dengan Filament untuk CRUD Event dan Pengguna.
+-   **Registrasi Publik**: Halaman registrasi terpisah untuk para *organizer* baru.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## 🛠️ Teknologi yang Digunakan
 
-## Learning Laravel
+-   **Backend**: Laravel 11
+-   **Admin Panel**: Filament 3
+-   **Database**: PostgreSQL (Direkomendasikan), MySQL
+-   **Otentikasi API**: `tymon/jwt-auth`
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## 🚀 Instalasi & Setup
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+Berikut adalah langkah-langkah untuk menjalankan proyek ini secara lokal.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+1.  **Clone Repository**
+    ```bash
+    git clone [https://github.com/your-username/your-repo-name.git](https://github.com/your-username/your-repo-name.git)
+    cd your-repo-name
+    ```
 
-## Laravel Sponsors
+2.  **Install Dependencies**
+    ```bash
+    composer install
+    ```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+3.  **Setup Environment**
+    Salin file `.env.example` menjadi `.env` dan sesuaikan variabel lingkungan, terutama koneksi database (`DB_DATABASE`, `DB_USERNAME`, `DB_PASSWORD`).
+    ```bash
+    cp .env.example .env
+    ```
 
-### Premium Partners
+4.  **Generate Keys**
+    Buat kunci aplikasi dan kunci JWT.
+    ```bash
+    php artisan key:generate
+    php artisan jwt:secret
+    ```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+5.  **Migrasi dan Seeding Database**
+    Perintah ini akan membuat semua tabel database dan mengisinya dengan data awal (1 admin, 2 organizer, dll.).
+    ```bash
+    php artisan migrate:fresh --seed
+    ```
 
-## Contributing
+## ධ Jalankan Aplikasi
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+-   **Jalankan Development Server:**
+    ```bash
+    php artisan serve
+    ```
+    Aplikasi akan berjalan di `http://127.0.0.1:8000`.
 
-## Code of Conduct
+-   **URL Penting:**
+    -   **Base URL API**: `http://127.0.0.1:8000/api`
+    -   **Admin Panel**: `http://127.0.0.1:8000/admin`
+    -   **Halaman Registrasi Organizer**: `http://127.0.0.1:8000/register`
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## 🔑 Akun Demo
 
-## Security Vulnerabilities
+Anda bisa menggunakan akun berikut untuk login ke **Admin Panel** setelah menjalankan *seeder*.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+-   **Role**: Admin
+    -   **Email**: `admin@example.com`
+    -   **Password**: `password`
 
-## License
+-   **Role**: Organizer
+    -   Anda bisa membuat akun organizer baru melalui halaman `/register` atau menggunakan data dari seeder (cek database untuk emailnya).
+    -   **Password** untuk semua user dari seeder adalah `password`.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-# tefa-backend
+## ⚙️ API Endpoints
+
+Berikut adalah ringkasan dari endpoint API yang tersedia.
+
+| Method   | Endpoint                | Deskripsi                         | Memerlukan Auth |
+| :------- | :---------------------- | :-------------------------------- | :-------------- |
+| `POST`   | `/api/auth/login`       | Login untuk mendapatkan token     | Tidak           |
+| `POST`   | `/api/auth/logout`      | Logout dan membatalkan token      | **Ya** |
+| `GET`    | `/api/auth/me`          | Melihat profil user yang login    | **Ya** |
+| `GET`    | `/api/events`           | Melihat daftar semua event        | Tidak           |
+| `POST`   | `/api/events`           | Membuat event baru                | **Ya** |
+| `GET`    | `/api/events/{id}`      | Melihat detail satu event         | Tidak           |
+| `PUT`    | `/api/events/{id}`      | Mengupdate data event             | **Ya** |
+| `DELETE` | `/api/events/{id}`      | Menghapus event                   | **Ya** |
+
+## 🧪 Pengujian dengan Postman
+
+Sebuah file koleksi Postman (`tefa-test-batch5.postman.json`) sudah disertakan di dalam repository. Anda bisa mengimpornya ke Postman untuk melakukan pengujian ke semua endpoint API dengan lebih mudah.
