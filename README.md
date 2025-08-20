@@ -30,8 +30,8 @@ Berikut adalah langkah-langkah untuk menjalankan proyek ini secara lokal.
 
 1.  **Clone Repository**
     ```bash
-    git clone [https://github.com/your-username/your-repo-name.git](https://github.com/your-username/your-repo-name.git)
-    cd your-repo-name
+    git clone https://github.com/ferdiodwi/tefa-backend.git
+    cd tefa-backend
     ```
 
 2.  **Install Dependencies**
@@ -69,18 +69,18 @@ Berikut adalah langkah-langkah untuk menjalankan proyek ini secara lokal.
 -   **URL Penting:**
     -   **Base URL API**: `http://127.0.0.1:8000/api`
     -   **Admin Panel**: `http://127.0.0.1:8000/admin`
-    -   **Halaman Registrasi Organizer**: `http://127.0.0.1:8000/register`
+    -   **Halaman Registrasi Organizer**: `http://127.0.0.1:8000/admin/register`
 
 ## 🔑 Akun Demo
 
 Anda bisa menggunakan akun berikut untuk login ke **Admin Panel** setelah menjalankan *seeder*.
 
 -   **Role**: Admin
-    -   **Email**: `admin@example.com`
-    -   **Password**: `password`
+    -   **Email**: `admin@gmail.com`
+    -   **Password**: `admin123`
 
 -   **Role**: Organizer
-    -   Anda bisa membuat akun organizer baru melalui halaman `/register` atau menggunakan data dari seeder (cek database untuk emailnya).
+    -   Anda bisa membuat akun organizer baru melalui halaman `admin/register` atau menggunakan data dari seeder (cek database untuk emailnya).
     -   **Password** untuk semua user dari seeder adalah `password`.
 
 ## ⚙️ API Endpoints
