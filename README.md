@@ -19,9 +19,9 @@ Ini adalah backend project untuk sebuah platform manajemen event bernama "EventH
 
 ## 🛠️ Teknologi yang Digunakan
 
--   **Backend**: Laravel 11
+-   **Backend**: Laravel 10
 -   **Admin Panel**: Filament 3
--   **Database**: PostgreSQL (Direkomendasikan), MySQL
+-   **Database**: PostgreSQL
 -   **Otentikasi API**: `tymon/jwt-auth`
 
 ## 🚀 Instalasi & Setup
