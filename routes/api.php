@@ -29,13 +29,6 @@ Route::group(['prefix' => 'auth', 'as' => 'auth.'], function () {
 });
 
 
-// Rute untuk Event -> Cocok dengan folder "Event" di Postman
-// Perintah ini secara otomatis membuat endpoint berikut:
-// GET /events          (Get Events)
-// POST /events         (Store Events)
-// GET /events/{id}     (Get Events by Id)
-// PUT /events/{id}     (Update Events)
-// DELETE /events/{id}  (Delete Events)
 Route::apiResource('events', EventController::class);
 
 
